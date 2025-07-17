@@ -15,6 +15,10 @@ const Produtos = sequelize.define('Produtos', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    estado: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     preco: {
         type: DataTypes.FLOAT,
         allowNull: false

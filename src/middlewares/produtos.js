@@ -1,7 +1,7 @@
 function validateCreateProduto(req, res, next){
-    const { banner, titulo, preco, descricao, categoria } = req.body;
+    const { banner, titulo, estado, preco, descricao, categoria } = req.body;
 
-    if(!banner || !titulo || !preco ||!descricao ||!categoria){
+    if(!banner || !titulo || !estado || !preco ||!descricao ||!categoria){
         return res. status(400).send('Todos os campos são obrigatórios')
     }
 
@@ -37,9 +37,9 @@ function validateDeleteProduto(req, res, next){
 }
 
 function validateUpdateProduto(req, res, next) {
-    const { banner, titulo, preco, descricao, categoria } = req.body;
+    const { banner, titulo, estado, preco, descricao, categoria } = req.body;
 
-    if (!banner || !titulo || !preco || !descricao || !categoria) {
+    if (!banner || !titulo || !estado || !preco || !descricao || !categoria) {
         return res.status(400).send('Todos os campos são obrigatórios para atualização');
     }
 
