@@ -33,7 +33,12 @@ async function login(req, res) {
         )
         
         return res.send({
-            token
+            token: token,
+            user: {
+                id: user.id,
+                email: user.email,
+                name: user.name
+            }
         })
     } catch (error) {
         return res.status(500).send({
