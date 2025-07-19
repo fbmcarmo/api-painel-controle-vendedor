@@ -29,7 +29,14 @@ const Produtos = sequelize.define('Produtos', {
     categoria: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
+    // userId: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false
+    // }
 })
+
+Produtos.belongsTo(Users, { foreignKey: "userId" });
+Users.hasMany(Produtos, { foreignKey: "userId" });
 
 module.exports = Produtos;
