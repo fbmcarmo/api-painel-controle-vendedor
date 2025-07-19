@@ -13,6 +13,11 @@ router.get(
     produtosMiddleware.validateGetProdutoById,
     produtosController.getProdutoById
 )
+router.get(
+    '/user-produtos/:id',
+    produtosMiddleware.validateGetProdutoById,
+    produtosController.getProdutosByUserId
+)
 router.post(
     '/produtos',
     authMiddleware.validateToken,

@@ -30,6 +30,29 @@ async function getProdutoById(req, res) {
     }
 }
 
+async function getProdutosByUserId(req, res) {
+    const { id } = req.params;
+
+    try {
+        const produtos = await Produtos.findAll({
+            where: {
+                userId: id
+            }
+        });
+
+        if (!produtos) {
+            return res.status(404).send('Produtos não encontrados');
+        }
+
+        return res.send(produtos);
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Erro ao buscar produto');
+    }
+}
+
+
 async function createProduto(req, res) {
     try {
         const produto = await Produtos.create(req.body)
@@ -83,6 +106,7 @@ async function updateProduto(req, res) {
 module.exports = {
     getProdutos,
     getProdutoById,
+    getProdutosByUserId,
     createProduto,
     deleteProduto,
     updateProduto
